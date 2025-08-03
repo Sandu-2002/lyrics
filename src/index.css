@@ -1,0 +1,174 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Lyric Canvas Magic - Dark Creative Theme */
+
+@layer base {
+  :root {
+    /* Dark theme base */
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+
+    /* Creative purple primary */
+    --primary: 263 70% 50%;
+    --primary-foreground: 0 0% 98%;
+    --primary-glow: 263 70% 65%;
+
+    /* Subtle dark secondary */
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+
+    /* Neon accent */
+    --accent: 195 100% 50%;
+    --accent-foreground: 240 10% 3.9%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 263 70% 50%;
+
+    --radius: 0.75rem;
+
+    /* Creative gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-accent: linear-gradient(135deg, hsl(var(--accent)), hsl(var(--primary)));
+    --gradient-bg: linear-gradient(135deg, hsl(var(--background)), hsl(240 10% 5%));
+
+    /* Shadows and glows */
+    --shadow-glow: 0 0 40px hsl(var(--primary) / 0.3);
+    --shadow-accent: 0 0 20px hsl(var(--accent) / 0.4);
+    --shadow-elevation: 0 10px 30px -10px hsl(0 0% 0% / 0.5);
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    /* Video canvas */
+    --canvas-bg: 240 8% 6%;
+    --canvas-border: 263 70% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  /* Background gradients */
+  .bg-gradient-bg { background: var(--gradient-bg); }
+  .bg-gradient-primary { background: var(--gradient-primary); }
+  .bg-gradient-accent { background: var(--gradient-accent); }
+  
+  /* Shadow utilities */
+  .shadow-glow { box-shadow: var(--shadow-glow); }
+  .shadow-accent { box-shadow: var(--shadow-accent); }
+  .shadow-elevation { box-shadow: var(--shadow-elevation); }
+  
+  /* Animation keyframes */
+  @keyframes accordion-down {
+    from { height: 0; }
+    to { height: var(--radix-accordion-content-height); }
+  }
+  
+  @keyframes accordion-up {
+    from { height: var(--radix-accordion-content-height); }
+    to { height: 0; }
+  }
+  
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  @keyframes scale-in {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+  
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-2px); }
+    75% { transform: translateX(2px); }
+  }
+  
+  @keyframes glow-pulse {
+    0%, 100% { filter: brightness(1) drop-shadow(0 0 20px hsl(var(--primary))); }
+    50% { filter: brightness(1.2) drop-shadow(0 0 40px hsl(var(--primary))); }
+  }
+  
+  @keyframes lyrics-bounce {
+    0% { transform: translateY(20px); opacity: 0; }
+    60% { transform: translateY(-5px); opacity: 1; }
+    100% { transform: translateY(0); opacity: 1; }
+  }
+  
+  @keyframes ken-burns {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.1); }
+  }
+  
+  @keyframes tv-static {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.8; filter: contrast(1.2) brightness(1.1); }
+  }
+  
+  @keyframes typewriter {
+    from { width: 0; }
+    to { width: 100%; }
+  }
+  
+  @keyframes bounce-in {
+    0% { transform: scale(0.5); opacity: 0; }
+    50% { transform: scale(1.1); opacity: 1; }
+    70% { transform: scale(0.95); }
+    100% { transform: scale(1); opacity: 1; }
+  }
+  
+  @keyframes slide-in {
+    0% { transform: translateX(-20px); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
+  }
+  
+  @keyframes neon-shine {
+    0%, 100% { text-shadow: 0 0 5px currentColor, 0 0 10px currentColor; }
+    50% { text-shadow: 0 0 20px currentColor, 0 0 30px currentColor, 0 0 40px currentColor; }
+  }
+  
+  /* Animation classes */
+  .animate-accordion-down { animation: accordion-down 0.2s ease-out; }
+  .animate-accordion-up { animation: accordion-up 0.2s ease-out; }
+  .animate-fade-in { animation: fade-in 0.5s ease-out; }
+  .animate-scale-in { animation: scale-in 0.3s ease-out; }
+  .animate-shake { animation: shake 0.5s ease-in-out infinite; }
+  .animate-glow-pulse { animation: glow-pulse 2s ease-in-out infinite; }
+  .animate-lyrics-bounce { animation: lyrics-bounce 0.6s ease-out; }
+  .animate-ken-burns { animation: ken-burns 10s ease-in-out infinite alternate; }
+  .animate-tv-static { animation: tv-static 0.1s ease-in-out infinite; }
+  .animate-typewriter { 
+    animation: typewriter 1s steps(20, end);
+    overflow: hidden;
+    white-space: nowrap;
+    display: inline-block;
+  }
+  .animate-bounce-in { animation: bounce-in 0.6s ease-out; }
+  .animate-slide-in { animation: slide-in 0.5s ease-out; }
+  .animate-neon-shine { animation: neon-shine 1.5s ease-in-out infinite; }
+}
